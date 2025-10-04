@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Aurora</title>
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset Básico e Estilos Globais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #1C1C1C;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h2, h3 {
+            font-weight: 700;
+        }
+
+        /* --- Cor de Destaque --- */
+        strong, .text-highlight {
+            color: #1E6A4B; /* Verde mais escuro para os negritos */
+        }
+
+        /* --- Animação de Flutuação Suave --- */
+        @keyframes float-animation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .floating {
+            animation: float-animation 5s ease-in-out infinite;
+        }
+
+        /* --- Header --- */
+        .site-header {
+            background-color: #065f46; /* Verde escuro principal */
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 64px;
+            width: 64px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .site-title {
+            font-size: 1.75rem;
+            margin-left: 1rem;
+            font-weight: 700;
+        }
+
+        /* --- Conteúdo Principal --- */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .section p {
+            max-width: 800px;
+            margin: 0 auto 1rem auto;
+            text-align: justify;
+        }
+        
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contribution-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contribution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .contribution-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* --- Carrossel de Imagens --- */
+        .carousel-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            width: 100%;
+            scroll-snap-align: start;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            color: #065f46;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .carousel-btn:hover {
+            background-color: white;
+        }
+
+        #prevBtn {
+            left: 10px;
+        }
+
+        #nextBtn {
+            right: 10px;
+        }
+
+        /* --- Footer --- */
+        .site-footer {
+            background-color: #065f46;
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* --- Responsividade --- */
+        @media (min-width: 768px) {
+            .logo {
+                height: 96px;
+                width: 96px;
+            }
+
+            .site-title {
+                font-size: 2.5rem;
+                margin-left: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .section p {
+                text-align: center;
+            }
+            
+            .contribution-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+             .contact-info p {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <img src="https://placehold.co/96x96/FFFFFF/065f46?text=Logo" alt="Logo do Projeto Aurora" class="logo">
+            <h1 class="site-title floating">Projeto Aurora</h1>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Seção: Sobre o Projeto -->
+            <section id="sobre" class="section">
+                <h2 class="section-title floating">Sobre o <strong>Projeto</strong></h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi.
+                </p>
+                <p>
+                    Duis semper. Duis arcu massa, scisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales.
+                </p>
+            </section>
+
+            <!-- Seção: Como Contribuir -->
+            <section id="contribuir" class="section">
+                <h2 class="section-title floating">Como <strong>Contribuir</strong></h2>
+                <div class="contribution-grid">
+                    <div class="contribution-card">
+                        <h3 class="text-highlight">Doações</h3>
+                        <p>
+                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu.
+                        </p>
+                    </div>
+                    <div class="contribution-card">
+                        <h3 class="text-highlight">Voluntariado</h3>
+                        <p>
+                            Aenean placerat. In hac habitasse platea dictumst. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção: Galeria de Imagens (Carrossel) -->
+            <section id="galeria" class="section">
+                <h2 class="section-title floating">Nossa <strong>Galeria</strong></h2>
+                <div class="carousel-wrapper">
+                    <div id="carousel" class="carousel-container">
+                        <!-- Imagens do Carrossel (Placeholder) -->
+                        <div class="carousel-item">
+                            <img src="https://placehold.co/1200x600/1E6A4B/FFFFFF?text=Imagem+1" alt="Imagem 1 da galeria">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://placehold.co/1200x600/2E8B57/FFFFFF?text=Imagem+2" alt="Imagem 2 da galeria">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://placehold.co/1200x600/3CB371/FFFFFF?text=Imagem+3" alt="Imagem 3 da galeria">
+                        </div>
+                    </div>
+                    <button id="prevBtn" class="carousel-btn">&lt;</button>
+                    <button id="nextBtn" class="carousel-btn">&gt;</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <h3>Entre em Contato</h3>
+            <div class="contact-info">
+                <p><strong>Email:</strong> contato@projetoaurora.org</p>
+                <p><strong>Telefone:</strong> (99) 99999-9999</p>
+                <p><strong>Endereço:</strong> Rua Fictícia, 123 - Cidade, Estado</p>
+            </div>
+            <p class="footer-copyright">&copy; 2024 Projeto Aurora. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para o carrossel de imagens
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (carousel) {
+            nextBtn.addEventListener('click', () => {
+                const itemWidth = carousel.querySelector('.carousel-item').clientWidth;
+                carousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const itemWidth = carousel.querySelector('.carousel-item').clientWidth;
+                carousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
