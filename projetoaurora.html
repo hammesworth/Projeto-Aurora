@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Aurora</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .carousel-track {
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'green-dark': '#2F5233',
+              'green-medium': '#4A7856',
+              'green-light': '#F0FFF4',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-green-light text-gray-800">
+
+
+    <header class="bg-green-dark text-white shadow-lg">
+            
+                <div class="container mx-auto px-6 py-8 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="flex items-center gap-4 w-full"> 
+    <div class="flex-shrink-0 h-20 w-20 md:h-24 md:w-24">
+        <img src="logo.png" alt="Logo do Projeto Aurora" class="h-full w-full rounded-full object-cover">
+    </div>
+
+    <div class="flex items-center w-full justify-between">
+        <h1 class="text-4xl md:text-5xl font-bold">Projeto Aurora</h1>
+        
+        <p class="text-lg md:text-xl max-w-lg text-green-light/90">Bem-vindo ao Projeto Aurora</p>
+    </div>
+</div>
+</div>
+    </header>
+
+   
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold text-green-dark mb-4">Sobre o projeto</h2>
+            <p class="mb-4 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+            <p class="leading-relaxed">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
+            </p>
+            <div class="mt-8 border-t border-gray-200 pt-8">
+                 <h3 class="text-2xl font-bold text-green-dark mb-4">Como posso contribuir?</h3>
+                 <p class="leading-relaxed">
+                    Phasellus rhoncus, dolor eget viverra pretium, dolor tellus aliquet nunc, vitae ultricies erat elit eu lacus. Vestibulum non justo consectetur, cursus nunc eget, sollicitudin nisl. Vivamus laoreet, erat at efficitur pulvinar, nunc dui egestas augue, vel rutrum lacus sapien ut leo.
+                 </p>
+            </div>
+        </div>
+    </main>
+    
+   
+    <section id="camera-roll" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-green-dark mb-8">Nossa Galeria</h2>
+            
+            <div id="carousel" class="relative overflow-hidden rounded-lg shadow-xl max-w-4xl mx-auto">
+                
+                <div id="carousel-track" class="carousel-track flex">
+                    
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1200x600/2F5233/F0FFF4?text=Ambiente+Aconchegante" alt="Ambiente aconchegante" class="w-full h-auto object-cover">
+                    </div>
+                    
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1200x600/4A7856/FFFFFF?text=Detalhes+Naturais" alt="Detalhes Naturais" class="w-full h-auto object-cover">
+                    </div>
+               
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1200x600/2F5233/E0F2E9?text=Design+Sustentável" alt="Design Sustentável" class="w-full h-auto object-cover">
+                    </div>
+                   
+                    <div class="w-full flex-shrink-0">
+                        <img src="https://placehold.co/1200x600/4A7856/FFFFFF?text=Conforto+e+Paz" alt="Conforto e Paz" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                
+                <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-green-dark p-2 rounded-full shadow-md focus:outline-none transition-colors">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+
+                
+                <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-green-dark p-2 rounded-full shadow-md focus:outline-none transition-colors">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="bg-green-dark text-white">
+        <div class="container mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-center md:text-left">
+          
+            <div>
+            <h3 class="text-2xl font-bold mb-2">Entre em Contato</h3>
+                <p class="text-green-light/90">Email: projetoaurora@gmail.com</p>
+                <p class="text-green-light/90">Telefone: (24) 99927-7430</p>
+            </div>
+         
+        </div>
+        <div class="bg-black/20 py-4">
+            <p class="text-center text-sm text-green-light/70">&copy; 2025 Projeto Aurora. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.getElementById('carousel-track');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (!track || !prevBtn || !nextBtn) return;
+            
+            let slides = Array.from(track.children);
+            let slideWidth = 0;
+            let currentIndex = 0;
+            
+            function updateCarouselDimensions() {
+                slideWidth = slides[0].getBoundingClientRect().width;
+              
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                
+                track.offsetHeight; 
+                track.style.transition = 'transform 0.5s ease-in-out';
+            }
+
+           
+            function moveToSlide(targetIndex) {
+              
+                if (targetIndex < 0) {
+                    targetIndex = slides.length - 1;
+                } else if (targetIndex >= slides.length) {
+                    targetIndex = 0;
+                }
+                
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                currentIndex = targetIndex;
+            }
+            
+            nextBtn.addEventListener('click', () => {
+                moveToSlide(currentIndex + 1);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                moveToSlide(currentIndex - 1);
+            });
+
+            
+            window.addEventListener('resize', updateCarouselDimensions);
+            
+           
+            updateCarouselDimensions();
+        });
+    </script>
+</body>
+</html>
